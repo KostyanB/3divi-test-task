@@ -16,22 +16,17 @@ import {
 
 import { GlobalStyle } from './components/Styled/GlobalStyle';
 import Preloader from './components/Styled/Preloader';
+import DeviceSelection from './components/DeviceSelection';
 
 function App({ dbUrl }) {
   const dispatch = useDispatch();
   const error = useSelector(selectError);
   const status = useSelector(selectStatus);
-  const data = useSelector(selectData);
-  console.log('data: ', data);
 
   const devicesIds = useSelector(selectDevicesIds);
-  console.log('devicesIds: ', devicesIds);
   const devicesEntities = useSelector(selectDevicesEntities);
-  console.log('devicesEntities: ', devicesEntities);
   const allDevices = useSelector(selectAllDevices);
-  console.log('allDevices: ', allDevices);
   const totalDevices = useSelector(selectTotalDevices);
-  console.log('totalDevices: ', totalDevices);
 
   useEffect(() => {
     dispatch(getData(dbUrl));
@@ -40,7 +35,7 @@ function App({ dbUrl }) {
   return (
     <Suspense fallback={<Preloader />}>
       <GlobalStyle />
-      <div>work</div>
+      <DeviceSelection />
     </Suspense>
   );
 }

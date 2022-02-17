@@ -1,4 +1,3 @@
-import { CrossIcon, CheckIcon } from './Icons';
+import { CheckIcon } from './Icons';
 
-export { CrossIcon };
 export { CheckIcon };

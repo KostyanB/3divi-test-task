@@ -330,7 +330,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 500px;
         height: 500px;
         margin: auto;
-        background-color: gray;
         /* fix place for scroll */
         /* scrollbar-gutter: stable; */
     }

@@ -6,7 +6,7 @@ import { CheckIcon } from '../Icons';
 
 const {
   transitionDuration,
-  colors: { mainTextColor, extraTextColor },
+  colors: { hoverColor, extraTextColor },
 } = env;
 
 const Label = styled.label`
@@ -16,6 +16,13 @@ const Label = styled.label`
   padding: 6px 10px;
   height: 30px;
   cursor: pointer;
+
+  &:hover {
+    & > div > span,
+    & > div > div > svg {
+      color: ${hoverColor};
+    }
+  }
 
   & > input {
     grid-area: 1/-1;
@@ -29,7 +36,7 @@ const Select = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 40px;
   grid-area: 1/-1;
   place-self: start;
 
@@ -46,7 +53,6 @@ const SelectField = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.2s;
   background-color: transparent;
   border: none;
   color: ${extraTextColor};

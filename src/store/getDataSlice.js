@@ -17,7 +17,7 @@ export const getData = createAsyncThunk(
 export const getDataSlice = createSlice({
   name: 'getData',
   initialState: {
-    data: {},
+    data: null,
     status: null,
     error: null,
   },

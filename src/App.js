@@ -7,12 +7,6 @@ import {
   selectError,
   selectData,
 } from './store/getDataSlice';
-import {
-  selectDevicesIds,
-  selectDevicesEntities,
-  selectAllDevices,
-  selectTotalDevices,
-} from './store/devicesSlice.js';
 
 import { GlobalStyle } from './components/Styled/GlobalStyle';
 import Preloader from './components/Styled/Preloader';
@@ -22,11 +16,7 @@ function App({ dbUrl }) {
   const dispatch = useDispatch();
   const error = useSelector(selectError);
   const status = useSelector(selectStatus);
-
-  const devicesIds = useSelector(selectDevicesIds);
-  const devicesEntities = useSelector(selectDevicesEntities);
-  const allDevices = useSelector(selectAllDevices);
-  const totalDevices = useSelector(selectTotalDevices);
+  const data = useSelector(selectData);
 
   useEffect(() => {
     dispatch(getData(dbUrl));
@@ -35,7 +25,7 @@ function App({ dbUrl }) {
   return (
     <Suspense fallback={<Preloader />}>
       <GlobalStyle />
-      <DeviceSelection />
+      {data && <DeviceSelection />}
     </Suspense>
   );
 }

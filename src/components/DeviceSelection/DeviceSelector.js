@@ -1,6 +1,8 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import env from '../../env.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleSelectedDevice } from '../../store/devicesSlice';
 
 import { CheckIcon } from '../Icons';
 
@@ -63,17 +65,24 @@ const SelectField = styled.div`
   }
 `;
 
-const DeviceSelector = ({ deviceId }) => {
-  const [isSelected, setIsSelected] = useState(false);
+const DeviceSelector = ({ deviceId, selectValue }) => {
+  const dispatch = useDispatch();
+  const [isSelected, setIsSelected] = useState();
   const selectRef = useRef(null);
   const inputName = `dev-selector-${deviceId}`;
   const selectorTitle = `Выбрать устройство ${deviceId}`;
 
+  useEffect(() => {
+    setIsSelected(selectValue);
+  }, [selectValue]);
+
   const toggleSelect = useCallback(() => {
-    const newSelect = !selectRef.current.checked;
-    setIsSelected(newSelect);
-    selectRef.current.checked = newSelect;
-  }, [selectRef]);
+    // const newSelect = !selectRef.current.checked;
+    // setIsSelected(newSelect);
+    // selectRef.current.checked = newSelect;
+    selectRef.current.checked = !selectValue;
+    dispatch(toggleSelectedDevice(deviceId));
+  }, [selectRef, deviceId, selectValue, dispatch]);
 
   return (
     <Label htmlFor={inputName} title={selectorTitle} onClick={toggleSelect}>
@@ -85,7 +94,8 @@ const DeviceSelector = ({ deviceId }) => {
       />
       <Select>
         <span>{deviceId}</span>
-        <SelectField isSelected={isSelected}>
+        {/* <SelectField isSelected={isSelected}> */}
+        <SelectField isSelected={selectValue}>
           <CheckIcon name={deviceId} />
         </SelectField>
       </Select>

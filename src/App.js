@@ -11,7 +11,7 @@ import {
 import { GlobalStyle } from './components/Styled/GlobalStyle';
 import Preloader from './components/Styled/Preloader';
 import DeviceSelection from './components/DeviceSelection';
-import Diagram from './components/Diagram';
+import DiagramField from './components/DiagramField';
 
 function App({ dbUrl }) {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function App({ dbUrl }) {
       {data && (
         <>
           <DeviceSelection />
-          <Diagram />
+          <DiagramField />
         </>
       )}
     </Suspense>

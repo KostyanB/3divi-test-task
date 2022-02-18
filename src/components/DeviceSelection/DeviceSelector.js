@@ -18,12 +18,12 @@ const Label = styled.label`
   position: relative;
   display: grid;
   align-items: center;
-  padding: 6px 10px;
+  padding: 5px 10px;
   height: 30px;
   cursor: pointer;
 
   &:hover {
-    & > div > span,
+    & > div,
     & > div > div > svg {
       color: ${hoverColor};
     }
@@ -31,31 +31,37 @@ const Label = styled.label`
 
   & > input {
     grid-area: 1/-1;
-    place-self: end;
-    width: 30px;
-    height: 30px;
-    z-index: 5;
+    place-self: center end;
+    width: 20px;
+    height: 20px;
+    z-index: -1;
     cursor: pointer;
   }
 `;
 const Select = styled.div`
+  grid-area: 1/-1;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
   align-items: center;
-  gap: 40px;
-  grid-area: 1/-1;
-  place-self: start;
+  font-size: 14px;
+  line-height: 16px;
+  color: ${extraTextColor};
 
-  & > span {
+  /* & > span {
+    display: flex;
+    align-items: center;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     color: ${extraTextColor};
-  }
+  } */
 `;
 const SelectField = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +109,9 @@ const DeviceSelector = ({ deviceId, selectValue }) => {
         name={inputName}
       />
       <Select>
-        <span>{deviceId}</span>
+        {/* <span> */}
+        {deviceId}
+        {/* </span> */}
         {/* <SelectField isSelected={isSelected}> */}
         <SelectField isSelected={selectValue}>
           <CheckIcon name={deviceId} />

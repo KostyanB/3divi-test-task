@@ -19,7 +19,7 @@ const ItemWrap = styled.div`
   gap: 5px;
   & > div {
     width: 15px;
-    height: 10px;
+    height: 8px;
     background-color: ${props => props.color};
   }
   & > span {

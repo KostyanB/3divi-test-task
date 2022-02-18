@@ -2,7 +2,10 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import env from '../../env.json';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleSelectedDevice } from '../../store/devicesSlice';
+import {
+  toggleSelectedDevice,
+  setSelectedDevice,
+} from '../../store/devicesSlice';
 
 import { CheckIcon } from '../Icons';
 
@@ -31,7 +34,8 @@ const Label = styled.label`
     place-self: end;
     width: 30px;
     height: 30px;
-    z-index: -5;
+    z-index: 5;
+    cursor: pointer;
   }
 `;
 const Select = styled.div`
@@ -67,14 +71,20 @@ const SelectField = styled.div`
 
 const DeviceSelector = ({ deviceId, selectValue }) => {
   const dispatch = useDispatch();
-  const [isSelected, setIsSelected] = useState();
+  // const [isSelected, setIsSelected] = useState();
   const selectRef = useRef(null);
   const inputName = `dev-selector-${deviceId}`;
   const selectorTitle = `Выбрать устройство ${deviceId}`;
 
-  useEffect(() => {
-    setIsSelected(selectValue);
-  }, [selectValue]);
+  // useEffect(() => {
+  //   //   setIsSelected(selectValue);
+  //   dispatch(
+  //     setSelectedDevice({
+  //       id: deviceId,
+  //       value: selectRef.current.checked,
+  //     }),
+  //   );
+  // }, [selectRef, deviceId, dispatch]);
 
   const toggleSelect = useCallback(() => {
     // const newSelect = !selectRef.current.checked;

@@ -28,9 +28,8 @@ const Wrapper = styled.div`
 `;
 
 const DeviceSelection = () => {
-  const devicesIds = useSelector(selectDevicesIds);
+  // const devicesIds = useSelector(selectDevicesIds);
   const selectedDevices = useSelector(selectSelectedDevices);
-  console.log('devicesIds: ', devicesIds);
 
   // return devicesIds.map((item, i) => (
   //   <DeviceSelector key={i} deviceId={item} />

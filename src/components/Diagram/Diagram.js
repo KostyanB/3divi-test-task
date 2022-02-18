@@ -1,0 +1,34 @@
+import React from 'react';
+import styled from 'styled-components';
+import env from '../../env.json';
+
+import Footer from './Footer';
+
+const { mainTextColor, extraTextColor } = env.colors;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: 100%;
+  /* gap: 10px; */
+  padding: 10px;
+  border: 1px solid ${extraTextColor};
+`;
+const Title = styled.h2`
+  color: ${mainTextColor};
+  padding-left: 30px;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+const Diagram = () => {
+  return (
+    <Wrapper>
+      <Title>Total views: Age (by day of week)</Title>
+      <Footer />
+    </Wrapper>
+  );
+};
+export default Diagram;

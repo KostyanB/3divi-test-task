@@ -11,6 +11,7 @@ import {
 import { GlobalStyle } from './components/Styled/GlobalStyle';
 import Preloader from './components/Styled/Preloader';
 import DeviceSelection from './components/DeviceSelection';
+import Diagram from './components/Diagram';
 
 function App({ dbUrl }) {
   const dispatch = useDispatch();
@@ -25,7 +26,12 @@ function App({ dbUrl }) {
   return (
     <Suspense fallback={<Preloader />}>
       <GlobalStyle />
-      {data && <DeviceSelection />}
+      {data && (
+        <>
+          <DeviceSelection />
+          <Diagram />
+        </>
+      )}
     </Suspense>
   );
 }

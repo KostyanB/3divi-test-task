@@ -327,9 +327,11 @@ export const GlobalStyle = createGlobalStyle`
     #root {
         -webkit-box-sizing: border-box;
             box-sizing: border-box;
-        width: 500px;
+        width: 700px;
         height: 200px;
         margin: auto;
+        display:flex;
+        gap: 5px;
         /* fix place for scroll */
         /* scrollbar-gutter: stable; */
     }

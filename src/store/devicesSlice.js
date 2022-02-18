@@ -16,11 +16,15 @@ const devicesSlice = createSlice({
       const id = action.payload;
       state.selectedDevices[id] = !state.selectedDevices[id];
     },
+    setSelectedDevice: (state, action) => {
+      console.log('action: ', action.payload);
+    },
   },
   extraReducers: {
     [getData.fulfilled]: (state, action) => {
       const data = action.payload.data.o;
       devicesAdapter.setAll(state, data);
+
       data.forEach(item => {
         const deviceId = item.n;
         const selection = {};
@@ -34,7 +38,7 @@ const devicesSlice = createSlice({
   },
 });
 
-export const { toggleSelectedDevice } = devicesSlice.actions;
+export const { toggleSelectedDevice, setSelectedDevice } = devicesSlice.actions;
 
 export const {
   selectById: selectDevicesById,

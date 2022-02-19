@@ -5,7 +5,7 @@ import env from '../../env.json';
 const { mainTextColor } = env.colors;
 
 const Day = styled.div`
-  grid-row: 5;
+  grid-row: 6;
   grid-column: ${props => props.column};
   display: flex;
   justify-content: center;

@@ -1,0 +1,27 @@
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import env from '../../env.json';
+import { DiagramContext } from '../../context';
+
+const Item = styled.div`
+  grid-column: 1;
+  grid-row: ${props => props.row};
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5px;
+`;
+
+const TimeAxis = () => {
+  const {
+    maxTimeInDay: { timeAxisArr },
+  } = useContext(DiagramContext);
+
+  return (
+    <>
+      {timeAxisArr && timeAxisArr.map((item, i) => <Item key={i}>{item}</Item>)}
+      <Item row="5/7">0</Item>
+    </>
+  );
+};
+export default TimeAxis;

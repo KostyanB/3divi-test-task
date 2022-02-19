@@ -328,7 +328,7 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-box-sizing: border-box;
             box-sizing: border-box;
         width: 700px;
-        height: 300px;
+        height: 350px;
         margin: auto;
         display:flex;
         gap: 5px;

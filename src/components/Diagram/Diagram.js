@@ -10,18 +10,18 @@ import {
 } from '../../store/devicesSlice';
 import calcVisitTime from '../../helpers/calcVisitTime';
 
+import TimeAxis from './TimeAxis';
 import DayColumns from './DayColumns';
-
 import WeekDays from './WeekDays';
-import GridBack from './GridBack';
+import GridBack from '../GridBack';
 
 const Wrapper = styled.div`
   width: 100%;
-  /* height: 150px; */
-  flex-grow: 1;
+  height: 258px;
+  /* flex-grow: 1; */
   display: grid;
-  grid-template-columns: 50px repeat(7, 1fr);
-  grid-template-rows: repeat(4, 1fr) 30px;
+  grid-template-columns: 80px repeat(7, 1fr);
+  grid-template-rows: repeat(4, 51px) repeat(2, 25px);
   padding-right: 30px;
 `;
 
@@ -30,18 +30,21 @@ const Diagram = () => {
   const selectedDevices = useSelector(selectSelectedDevices);
   const {
     visitTime: { setVisitTime },
+    maxTimeInDay: { setMaxTime },
   } = useContext(DiagramContext);
 
   useEffect(() => {
-    const visits = calcVisitTime({
+    const { weekDayTime, maxDayTime } = calcVisitTime({
       timeData: devicesEntities,
       devicesData: selectedDevices,
     });
-    setVisitTime(visits);
-  }, [devicesEntities, selectedDevices, setVisitTime]);
+    setVisitTime(weekDayTime);
+    setMaxTime(maxDayTime);
+  }, [devicesEntities, selectedDevices, setVisitTime, setMaxTime]);
 
   return (
     <Wrapper>
+      <TimeAxis />
       <DayColumns />
       <WeekDays />
       <GridBack />

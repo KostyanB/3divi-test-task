@@ -14,13 +14,13 @@ const Wrapper = styled.div`
   justify-content: space-between;
   flex-grow: 1;
   height: 100%;
-  gap: 10px;
+  /* gap: 10px; */
   padding: 10px;
   border: 1px solid ${extraTextColor};
 `;
 const Title = styled.h2`
   color: ${mainTextColor};
-  padding-left: 30px;
+  padding-left: 80px;
   font-size: 14px;
   font-weight: bold;
 `;

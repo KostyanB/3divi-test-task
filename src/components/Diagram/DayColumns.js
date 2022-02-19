@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const Column = ({ visits }) => {
-  console.log('visits: ', visits);
+  // console.log('visits: ', visits);
   return <div></div>;
 };
 

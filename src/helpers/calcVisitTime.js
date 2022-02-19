@@ -3,6 +3,7 @@ import createWeekDayTimeObj from './createWeekDayTimeObj';
 
 const calcVisitTime = ({ timeData, devicesData }) => {
   const { weekDays } = env;
+  let maxDayTime = 0;
 
   const weekDayTime = createWeekDayTimeObj();
 
@@ -14,15 +15,21 @@ const calcVisitTime = ({ timeData, devicesData }) => {
     data.o.forEach(item => {
       const dayNum = new Date(item.n).getDay();
       const key = weekDays[dayNum];
+
       item.o.forEach(user => {
         weekDayTime[key][user.n] += user.vd;
       });
+
+      const dayTime = Object.values(weekDayTime[key]).reduce(
+        (acc, time) => (acc += time),
+        0,
+      );
+      maxDayTime = Math.max(maxDayTime, dayTime);
     });
   };
 
   devices.forEach(device => reduceWeekDayTime(timeData[device]));
 
-  console.log('weekDayTime: ', weekDayTime);
-  return weekDayTime;
+  return { weekDayTime, maxDayTime };
 };
 export default calcVisitTime;

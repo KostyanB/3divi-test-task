@@ -9,7 +9,7 @@ import {
 } from '../../store/devicesSlice';
 import calcVisitTime from '../../helpers/calcVisitTime';
 
-import TimeAxis from './TimeAxis';
+import TimeAxis from '../TimeAxis';
 import DayColumns from './DayColumns';
 import WeekDays from './WeekDays';
 import GridBack from '../GridBack';

@@ -1,18 +1,18 @@
 import React, { createContext } from 'react';
 import useVisitTime from '../hooks/useVisitTime';
-import useMaxTimeInDay from '../hooks/useMaxTimeInDay';
+import useTimeAxis from '../hooks/useTimeAxis';
 
 export const DiagramContext = createContext();
 
 export const DiagramContextProvider = props => {
   const visitTime = useVisitTime();
-  const maxTimeInDay = useMaxTimeInDay();
+  const timeAxis = useTimeAxis();
 
   return (
     <DiagramContext.Provider
       value={{
         visitTime,
-        maxTimeInDay,
+        timeAxis,
       }}>
       {props.children}
     </DiagramContext.Provider>

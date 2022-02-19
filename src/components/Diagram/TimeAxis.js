@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import env from '../../env.json';
 import { DiagramContext } from '../../context';
 
 const Item = styled.div`
@@ -14,7 +13,7 @@ const Item = styled.div`
 
 const TimeAxis = () => {
   const {
-    maxTimeInDay: { timeAxisArr },
+    timeAxis: { timeAxisArr },
   } = useContext(DiagramContext);
 
   return (

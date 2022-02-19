@@ -1,11 +1,8 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import env from '../../env.json';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  toggleSelectedDevice,
-  setSelectedDevice,
-} from '../../store/devicesSlice';
+import { useDispatch } from 'react-redux';
+import { toggleSelectedDevice } from '../../store/devicesSlice';
 
 import { CheckIcon } from '../Icons';
 
@@ -49,15 +46,6 @@ const Select = styled.div`
   font-size: 14px;
   line-height: 16px;
   color: ${extraTextColor};
-
-  /* & > span {
-    display: flex;
-    align-items: center;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: ${extraTextColor};
-  } */
 `;
 const SelectField = styled.div`
   width: 20px;

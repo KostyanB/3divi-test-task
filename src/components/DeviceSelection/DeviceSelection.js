@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectDevicesIds,
-  selectSelectedDevices,
-} from '../../store/devicesSlice';
+import { useSelector } from 'react-redux';
+import { selectSelectedDevices } from '../../store/devicesSlice';
 import env from '../../env.json';
 
 import DeviceSelector from './DeviceSelector';

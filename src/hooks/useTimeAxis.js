@@ -1,12 +1,11 @@
 import { useState, useCallback } from 'react';
 import calcGreaterRoundNum from '../helpers/calcGreaterRoundNum';
 
-const useMaxTimeInDay = () => {
-  const [maxTimeInDay, setMaxTimeInDay] = useState(0);
+const useTimeAxis = () => {
   const [timeAxisArr, setTimeAxisArr] = useState(null);
   const [diagramHeight, setDiagramHeight] = useState(0);
 
-  const setMaxTime = useCallback(time => {
+  const setTimeAxis = useCallback(time => {
     const arr = [];
     const maxNum = calcGreaterRoundNum(time);
     const step = maxNum / 4;
@@ -26,17 +25,13 @@ const useMaxTimeInDay = () => {
       // arr.push(createStr(step * i));
     }
     setDiagramHeight(maxNum);
-    // setMaxTimeInDay(maxNum);
     setTimeAxisArr(arr);
   }, []);
 
   return {
     diagramHeight,
-    maxTimeInDay,
-    setMaxTimeInDay,
-    setMaxTime,
     timeAxisArr,
-    setTimeAxisArr,
+    setTimeAxis,
   };
 };
-export default useMaxTimeInDay;
+export default useTimeAxis;

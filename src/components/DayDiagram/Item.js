@@ -19,7 +19,7 @@ const Div = styled.div`
 const Item = ({ visitor, size }) => {
   const visitors = env.visitors;
   const {
-    maxTimeInDay: { diagramHeight },
+    timeAxis: { diagramHeight },
   } = useContext(DiagramContext);
 
   const calcSize = useCallback(

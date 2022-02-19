@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import env from '../../env.json';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { DiagramContext } from '../../context';
+import {
+  selectDevicesEntities,
+  selectSelectedDevices,
+} from '../../store/devicesSlice';
+import calcVisitTime from '../../helpers/calcVisitTime';
+
+import DayColumns from './DayColumns';
 
 import WeekDays from './WeekDays';
-
-const { mainTextColor, extraTextColor, hoverColor } = env.colors;
+import GridBack from './GridBack';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -17,9 +26,25 @@ const Wrapper = styled.div`
 `;
 
 const Diagram = () => {
+  const devicesEntities = useSelector(selectDevicesEntities);
+  const selectedDevices = useSelector(selectSelectedDevices);
+  const {
+    visitTime: { setVisitTime },
+  } = useContext(DiagramContext);
+
+  useEffect(() => {
+    const visits = calcVisitTime({
+      timeData: devicesEntities,
+      devicesData: selectedDevices,
+    });
+    setVisitTime(visits);
+  }, [devicesEntities, selectedDevices, setVisitTime]);
+
   return (
     <Wrapper>
+      <DayColumns />
       <WeekDays />
+      <GridBack />
     </Wrapper>
   );
 };

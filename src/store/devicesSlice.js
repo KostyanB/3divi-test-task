@@ -1,7 +1,8 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import { getData } from './getDataSlice';
+import env from '../env.json';
 
-const initDeviceSelection = false;
+const { initDevicesCheck } = env;
 
 const devicesAdapter = createEntityAdapter({
   selectId: device => device.n,
@@ -28,7 +29,7 @@ const devicesSlice = createSlice({
       data.forEach(item => {
         const deviceId = item.n;
         const selection = {};
-        selection[deviceId] = initDeviceSelection;
+        selection[deviceId] = initDevicesCheck;
         state.selectedDevices = {
           ...state.selectedDevices,
           ...selection,

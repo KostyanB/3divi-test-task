@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import env from '../../env.json';
 
@@ -17,11 +17,16 @@ const Day = styled.div`
 const WeekDays = () => {
   const weekDays = env.weekDays;
 
+  const firstLetterUpper = useCallback(
+    str => str.charAt(0).toUpperCase() + str.slice(1),
+    [],
+  );
+
   return (
     <>
       {weekDays.map((name, i) => (
         <Day key={i} column={i + 2}>
-          {name}
+          {firstLetterUpper(name)}
         </Day>
       ))}
     </>

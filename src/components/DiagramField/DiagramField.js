@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import env from '../../env.json';
+import { DiagramContextProvider } from '../../context';
+
 import Diagram from '../Diagram';
 import Footer from './Footer';
 
@@ -27,7 +29,9 @@ const DiagramField = () => {
   return (
     <Wrapper>
       <Title>Total views: Age (by day of week)</Title>
-      <Diagram />
+      <DiagramContextProvider>
+        <Diagram />
+      </DiagramContextProvider>
       <Footer />
     </Wrapper>
   );

@@ -4,6 +4,7 @@ import calcGreaterRoundNum from '../helpers/calcGreaterRoundNum';
 const useMaxTimeInDay = () => {
   const [maxTimeInDay, setMaxTimeInDay] = useState(0);
   const [timeAxisArr, setTimeAxisArr] = useState(null);
+  const [diagramHeight, setDiagramHeight] = useState(0);
 
   const setMaxTime = useCallback(time => {
     const arr = [];
@@ -24,12 +25,13 @@ const useMaxTimeInDay = () => {
       arr.push(formatter.format(step * i));
       // arr.push(createStr(step * i));
     }
-
-    setMaxTimeInDay(maxNum);
+    setDiagramHeight(maxNum);
+    // setMaxTimeInDay(maxNum);
     setTimeAxisArr(arr);
   }, []);
 
   return {
+    diagramHeight,
     maxTimeInDay,
     setMaxTimeInDay,
     setMaxTime,

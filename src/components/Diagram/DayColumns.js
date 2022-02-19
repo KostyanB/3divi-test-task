@@ -1,36 +1,37 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import styled from 'styled-components';
-import env from '../../env.json';
-import { useDispatch, useSelector } from 'react-redux';
 import { DiagramContext } from '../../context';
+import DayDiagram from '../DayDiagram';
 
 const Wrapper = styled.div`
+  place-self: end center;
   grid-column: ${props => props.column};
-  grid-row: 1/5;
-  background-color: transparent;
+  grid-row: 1/6;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 25px;
 `;
-
-const Column = ({ visits }) => {
-  // console.log('visits: ', visits);
-  return <div></div>;
-};
 
 const DayColumns = () => {
   const {
     visitTime: { visitTime },
   } = useContext(DiagramContext);
 
+  const createGridColumn = useCallback(
+    value => `${value + 2}/${value + 3}`,
+    [],
+  );
+
   return (
     <>
       {visitTime &&
         Object.keys(visitTime).map((item, i) => (
-          <Wrapper key={i} column={`${i + 2}/${i + 3}`}>
-            <Column visits={visitTime[item]} />
+          <Wrapper key={i} column={createGridColumn(i)}>
+            <DayDiagram visits={visitTime[item]} />
           </Wrapper>
         ))}
-      {/* <Wrapper column={'2/3'} />
-      <Wrapper column={'3/4'} />
-      <Wrapper column={'4/5'} /> */}
     </>
   );
 };

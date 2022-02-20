@@ -32,12 +32,14 @@ const Diagram = () => {
   } = useContext(DiagramContext);
 
   useEffect(() => {
-    const { weekDayTime, maxDayTime } = calcVisitTime({
-      timeData: devicesEntities,
-      devicesData: selectedDevices,
-    });
-    setVisitTime(weekDayTime);
-    setTimeAxis(maxDayTime);
+    if (devicesEntities && selectedDevices) {
+      const { weekDayTime, maxDayTime } = calcVisitTime({
+        timeData: devicesEntities,
+        devicesData: selectedDevices,
+      });
+      setVisitTime(weekDayTime);
+      setTimeAxis(maxDayTime);
+    }
   }, [devicesEntities, selectedDevices, setVisitTime, setTimeAxis]);
 
   return (

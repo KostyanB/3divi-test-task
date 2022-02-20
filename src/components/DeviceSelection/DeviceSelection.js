@@ -25,17 +25,14 @@ const Wrapper = styled.div`
 `;
 
 const DeviceSelection = () => {
-  // const devicesIds = useSelector(selectDevicesIds);
   const selectedDevices = useSelector(selectSelectedDevices);
 
-  // return devicesIds.map((item, i) => (
-  //   <DeviceSelector key={i} deviceId={item} />
-  // ));
   return (
     <Wrapper>
-      {Object.entries(selectedDevices).map(([id, value], i) => (
-        <DeviceSelector key={i} deviceId={id} selectValue={value} />
-      ))}
+      {selectedDevices &&
+        Object.entries(selectedDevices).map(([id, value], i) => (
+          <DeviceSelector key={i} deviceId={id} selectValue={value} />
+        ))}
     </Wrapper>
   );
 };

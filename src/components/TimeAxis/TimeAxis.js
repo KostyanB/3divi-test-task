@@ -1,7 +1,16 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 import { DiagramContext } from '../../context';
-import Item from './Item';
 import AxisItem from './AxisItem';
+
+const Item = styled.div`
+  grid-column: 1;
+  grid-row: ${props => props.row};
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5px;
+`;
 
 const TimeAxis = () => {
   const {
@@ -11,10 +20,12 @@ const TimeAxis = () => {
   return (
     <>
       {timeAxisArr &&
-        timeAxisArr.map((item, i) => <AxisItem key={i} name={item} />)}
-      <Item row="5/7" mount={1}>
-        0
-      </Item>
+        timeAxisArr.map((item, i) => (
+          <Item key={i}>
+            <AxisItem name={item} />
+          </Item>
+        ))}
+      <Item row="5/7">0</Item>
     </>
   );
 };

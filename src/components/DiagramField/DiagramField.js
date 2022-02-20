@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   flex-grow: 1;
   height: 100%;
-  /* gap: 10px; */
   padding: 10px;
   border: 1px solid ${extraTextColor};
 `;

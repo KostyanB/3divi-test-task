@@ -4,13 +4,13 @@
 
 ## О приложениии
 
-[Демо]()
+[Демо](https://divi-test-task.web.app)
 
--
+- Данные по посещениям получаются из `db/db.json` (имитируется fetch с сервера). Предварительно получил json и произвольно добавил тайминг для наглядности
 
 ## Стек и технологии
 
-- ReactJS, React Hooks, Styled Components, Context Provider, Reudx, Redux Toolkit Grid/Flex, RestAPI.
+- ReactJS, React Hooks, Styled Components, Context Provider, Reudx, Redux Toolkit, Grid/Flex, RestAPI.
 - Настройки приложения в файле `.env`: url бекэнда, стилевое оформление (цвета).
 - Сборка с помощью [Create React App](https://github.com/facebook/create-react-app).
 - Деплой демо готовой сборки на [Firebase Hosting](https://firebase.google.com).

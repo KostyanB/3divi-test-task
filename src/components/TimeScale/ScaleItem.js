@@ -9,7 +9,7 @@ const Span = styled.div`
   transition: opacity ${transitionDuration};
 `;
 
-const AxisItem = ({ name }) => {
+const ScaleItem = ({ name }) => {
   const [mount, setMount] = useState(false);
 
   useEffect(() => {
@@ -18,4 +18,4 @@ const AxisItem = ({ name }) => {
   console.log('asldh');
   return <Span mount={mount}>{name}</Span>;
 };
-export default AxisItem;
+export default ScaleItem;

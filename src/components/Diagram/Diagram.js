@@ -9,7 +9,7 @@ import {
 } from '../../store/devicesSlice';
 import calcVisitTime from '../../helpers/calcVisitTime';
 
-import TimeAxis from '../TimeAxis';
+import TimeScale from '../TimeScale';
 import DayColumns from './DayColumns';
 import WeekDays from './WeekDays';
 import GridBack from '../GridBack';
@@ -28,7 +28,7 @@ const Diagram = () => {
   const selectedDevices = useSelector(selectSelectedDevices);
   const {
     visitTime: { setVisitTime },
-    timeAxis: { setTimeAxis },
+    timeScale: { setTimeScale },
   } = useContext(DiagramContext);
 
   useEffect(() => {
@@ -38,13 +38,13 @@ const Diagram = () => {
         devicesData: selectedDevices,
       });
       setVisitTime(weekDayTime);
-      setTimeAxis(maxDayTime);
+      setTimeScale(maxDayTime);
     }
-  }, [devicesEntities, selectedDevices, setVisitTime, setTimeAxis]);
+  }, [devicesEntities, selectedDevices, setVisitTime, setTimeScale]);
 
   return (
     <Wrapper>
-      <TimeAxis />
+      <TimeScale />
       <DayColumns />
       <WeekDays />
       <GridBack />

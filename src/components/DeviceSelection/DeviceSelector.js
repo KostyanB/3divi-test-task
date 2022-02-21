@@ -65,25 +65,11 @@ const SelectField = styled.div`
 
 const DeviceSelector = ({ deviceId, selectValue }) => {
   const dispatch = useDispatch();
-  // const [isSelected, setIsSelected] = useState();
   const selectRef = useRef(null);
   const inputName = `dev-selector-${deviceId}`;
   const selectorTitle = `Выбрать устройство ${deviceId}`;
 
-  // useEffect(() => {
-  //   //   setIsSelected(selectValue);
-  //   dispatch(
-  //     setSelectedDevice({
-  //       id: deviceId,
-  //       value: selectRef.current.checked,
-  //     }),
-  //   );
-  // }, [selectRef, deviceId, dispatch]);
-
   const toggleSelect = useCallback(() => {
-    // const newSelect = !selectRef.current.checked;
-    // setIsSelected(newSelect);
-    // selectRef.current.checked = newSelect;
     selectRef.current.checked = !selectValue;
     dispatch(toggleSelectedDevice(deviceId));
   }, [selectRef, deviceId, selectValue, dispatch]);
@@ -97,10 +83,7 @@ const DeviceSelector = ({ deviceId, selectValue }) => {
         name={inputName}
       />
       <Select>
-        {/* <span> */}
         {deviceId}
-        {/* </span> */}
-        {/* <SelectField isSelected={isSelected}> */}
         <SelectField isSelected={selectValue}>
           <CheckIcon name={deviceId} />
         </SelectField>

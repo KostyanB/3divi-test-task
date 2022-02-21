@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { DiagramContext } from '../../context';
-import AxisItem from './AxisItem';
+import ScaleItem from './ScaleItem';
 
 const Item = styled.div`
   grid-column: 1;
@@ -12,21 +12,21 @@ const Item = styled.div`
   padding-right: 5px;
 `;
 
-const TimeAxis = () => {
+const TimeScale = () => {
   const {
-    timeAxis: { timeAxisArr },
+    timeScale: { timeScaleArr },
   } = useContext(DiagramContext);
 
   return (
     <>
-      {timeAxisArr &&
-        timeAxisArr.map((item, i) => (
+      {timeScaleArr &&
+        timeScaleArr.map((item, i) => (
           <Item key={i}>
-            <AxisItem name={item} />
+            <ScaleItem name={item} />
           </Item>
         ))}
       <Item row="5/7">0</Item>
     </>
   );
 };
-export default TimeAxis;
+export default TimeScale;

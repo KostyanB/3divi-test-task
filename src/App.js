@@ -1,12 +1,7 @@
-import React, { useEffect, Suspense, lazy } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import env from './env.json';
-import {
-  getData,
-  selectStatus,
-  selectError,
-  selectData,
-} from './store/getDataSlice';
+import { getData, selectStatus, selectError } from './store/getDataSlice';
 
 import { GlobalStyle } from './components/Styled/GlobalStyle';
 import Preloader from './components/Styled/Preloader';

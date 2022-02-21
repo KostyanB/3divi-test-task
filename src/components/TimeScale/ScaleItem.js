@@ -15,7 +15,7 @@ const ScaleItem = ({ name }) => {
   useEffect(() => {
     name && setMount(true);
   }, [name]);
-  console.log('asldh');
+
   return <Span mount={mount}>{name}</Span>;
 };
 export default ScaleItem;

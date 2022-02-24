@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import calcGreaterRoundNum from '../helpers/calcGreaterRoundNum';
+import formatScaleNum from '../helpers/formatScaleNum';
 
 const useTimeScale = () => {
   const [timeScaleArr, setTimeScaleArr] = useState(null);
@@ -10,12 +11,10 @@ const useTimeScale = () => {
     const maxNum = calcGreaterRoundNum(time);
     const step = maxNum / 4;
 
-    const formatter = new Intl.NumberFormat('ru');
-
-    arr.push(formatter.format(maxNum));
+    arr.push(formatScaleNum(maxNum));
 
     for (let i = 3; i >= 1; i--) {
-      arr.push(formatter.format(step * i));
+      arr.push(formatScaleNum(step * i));
     }
 
     setDiagramHeight(maxNum);

@@ -1,3 +1,0 @@
-If use clear "create-react-app", add packgages:
-
-npm i react-redux redux @reduxjs/toolkit styled-components

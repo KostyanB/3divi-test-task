@@ -28,7 +28,7 @@ const DayColumns = () => {
     <>
       {visitTime &&
         Object.keys(visitTime).map((item, i) => (
-          <Wrapper key={i} column={createGridColumn(i)}>
+          <Wrapper key={`${item}-${i}`} column={createGridColumn(i)}>
             <DayDiagram visits={visitTime[item]} />
           </Wrapper>
         ))}

@@ -7,7 +7,7 @@ import env from '../../env.json';
 import DeviceSelector from './DeviceSelector';
 const scrollColor = env.colors.extraTextColor;
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
   width: 130px;
   height: 100%;
   overflow-y: auto;
@@ -30,8 +30,8 @@ const DeviceSelection = () => {
   return (
     <Wrapper>
       {selectedDevices &&
-        Object.entries(selectedDevices).map(([id, value], i) => (
-          <DeviceSelector key={i} deviceId={id} selectValue={value} />
+        Object.entries(selectedDevices).map(([id, value]) => (
+          <DeviceSelector key={id} deviceId={id} selectValue={value} />
         ))}
     </Wrapper>
   );

@@ -36,8 +36,8 @@ const Item = ({ name, color }) => (
 
 const Footer = () => (
   <Wrapper>
-    {Object.values(visitors).map(({ name, color }, i) => (
-      <Item key={i} name={name} color={color} />
+    {Object.values(visitors).map(({ name, color }) => (
+      <Item key={name + color} name={name} color={color} />
     ))}
   </Wrapper>
 );

@@ -335,4 +335,16 @@ export const GlobalStyle = createGlobalStyle`
         /* fix place for scroll */
         /* scrollbar-gutter: stable; */
     }
+
+    .visually-hidden {
+        position: absolute !important;
+        transform: scale(0);
+        visibility: hidden !important;
+        /*listener насквозь*/
+        pointer-events: none !important;
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
 `;

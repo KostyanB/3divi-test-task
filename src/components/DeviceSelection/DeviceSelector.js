@@ -13,39 +13,21 @@ const {
 
 const Label = styled.label`
   position: relative;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 5px 10px;
-  height: 30px;
-  cursor: pointer;
-
-  &:hover {
-    & > div,
-    & > div > div > svg {
-      color: ${hoverColor};
-    }
-  }
-
-  & > input {
-    grid-area: 1/-1;
-    place-self: center end;
-    width: 20px;
-    height: 20px;
-    z-index: -1;
-    cursor: pointer;
-  }
-`;
-const Select = styled.div`
-  grid-area: 1/-1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  align-items: center;
   font-size: 14px;
   line-height: 16px;
   color: ${extraTextColor};
+  cursor: pointer;
+
+  &:hover {
+    color: ${hoverColor};
+    & > div > svg {
+      color: ${hoverColor};
+    }
+  }
 `;
 const SelectField = styled.div`
   width: 20px;
@@ -75,20 +57,23 @@ const DeviceSelector = ({ deviceId, selectValue }) => {
   }, [selectRef, deviceId, selectValue, dispatch]);
 
   return (
-    <Label htmlFor={inputName} title={selectorTitle} onClick={toggleSelect}>
-      <input
-        ref={selectRef}
-        type="checkbox"
-        form="dev-selectors"
-        name={inputName}
-      />
-      <Select>
+    <li>
+      <Label htmlFor={inputName} title={selectorTitle} onClick={toggleSelect}>
+        <input
+          ref={selectRef}
+          type="checkbox"
+          form="dev-selectors"
+          name={inputName}
+          className="visually-hidden"
+          aria-hidden="true"
+          tabIndex="-1"
+        />
         {deviceId}
         <SelectField isSelected={selectValue}>
           <CheckIcon name={deviceId} />
         </SelectField>
-      </Select>
-    </Label>
+      </Label>
+    </li>
   );
 };
 export default DeviceSelector;

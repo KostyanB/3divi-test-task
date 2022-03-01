@@ -25,7 +25,7 @@ const WeekDays = () => {
   return (
     <>
       {weekDays.map((name, i) => (
-        <Day key={i} column={i + 2}>
+        <Day key={`${name}-${i}`} column={i + 2}>
           {firstLetterUpper(name)}
         </Day>
       ))}

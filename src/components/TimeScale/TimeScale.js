@@ -21,7 +21,7 @@ const TimeScale = () => {
     <>
       {timeScaleArr &&
         timeScaleArr.map((item, i) => (
-          <Item key={i}>
+          <Item key={`${item}-${i}`}>
             <ScaleItem name={item} />
           </Item>
         ))}

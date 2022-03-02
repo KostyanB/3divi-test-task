@@ -330,10 +330,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 700px;
         height: 350px;
         margin: auto;
-        display:flex;
-        gap: 5px;
-        /* fix place for scroll */
-        /* scrollbar-gutter: stable; */
     }
 
     .visually-hidden {

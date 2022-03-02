@@ -2,7 +2,6 @@
   "name": "3divi_test_app_berezko_konstantin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kostyanb.github.io/3divi-test-task",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/jest-dom": "^5.14.1",

@@ -5,14 +5,16 @@ import { selectSelectedDevices } from '../../store/devicesSlice';
 import env from '../../env.json';
 
 import DeviceSelector from './DeviceSelector';
+import { Title2 } from '../Styled/Titles';
+
 const scrollColor = env.colors.extraTextColor;
 
-const Wrapper = styled.ul`
+const Wrapper = styled.div`
   width: 130px;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 5px 10px 5px 0px;
+  padding: 10px 10px 5px 0px;
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -28,12 +30,17 @@ const DeviceSelection = () => {
   const selectedDevices = useSelector(selectSelectedDevices);
 
   return (
-    <Wrapper>
-      {selectedDevices &&
-        Object.entries(selectedDevices).map(([id, value]) => (
-          <DeviceSelector key={id} deviceId={id} selectValue={value} />
-        ))}
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Title2 text="Devices ID" />
+        <ul>
+          {selectedDevices &&
+            Object.entries(selectedDevices).map(([id, value]) => (
+              <DeviceSelector key={id} deviceId={id} selectValue={value} />
+            ))}
+        </ul>
+      </Wrapper>
+    </>
   );
 };
 export default DeviceSelection;

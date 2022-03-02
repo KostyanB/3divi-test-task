@@ -5,6 +5,8 @@ import { getData, selectStatus, selectError } from './store/getDataSlice';
 
 import { GlobalStyle } from './components/Styled/GlobalStyle';
 import Preloader from './components/Styled/Preloader';
+import Header from './components/Header';
+import Container from './components/Styled/Container';
 import DeviceSelection from './components/DeviceSelection';
 import DiagramField from './components/DiagramField';
 import ErrorLoad from './components/Styled/ErrorLoad';
@@ -24,11 +26,12 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <Header />
       {status === 'success' && (
-        <>
+        <Container>
           <DeviceSelection />
           <DiagramField />
-        </>
+        </Container>
       )}
       {status === 'loading' && <Preloader />}
       {error && <ErrorLoad text={error} />}
